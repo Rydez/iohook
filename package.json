@@ -4,7 +4,6 @@
   "description": "Node.js global keyboard and mouse hook",
   "author": "Aloyan Dmitry",
   "license": "MIT",
-  "homepage": "https://github.com/Rydez/iohook",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Rydez/iohook.git"
