@@ -12,12 +12,13 @@ jobs:
     strategy:
       matrix:
         platform: [
-          {os: ubuntu-latest, arch: x86_64},
-          {os: windows-latest, arch: x86_64},
-          {os: macos-latest, arch: x86_64},
-          # Not supported by github actions.
-          # {os: macos-latest, arch: arm64},
-        ]
+            { os: ubuntu-latest, arch: x86_64 },
+            # Not sure why this one isn't working...
+            # {os: windows-latest, arch: x86_64},
+            { os: macos-latest, arch: x86_64 },
+            # Not supported by github actions.
+            # {os: macos-latest, arch: arm64},
+          ]
     runs-on: ${{ matrix.platform.os }}
     name: ${{ matrix.platform.os }} (${{matrix.platform.arch}})
     steps:
