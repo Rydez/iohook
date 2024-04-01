@@ -45,7 +45,7 @@ function initBuild() {
     if (process.env.npm_config_targets === 'all') {
       options.targets = supportedTargets.map((arr) => [arr[0], arr[2]]);
       options.platforms = ['win32', 'darwin', 'linux'];
-      options.arches = ['x64', 'ia32'];
+      options.arches = ['x64', 'ia32', 'arm64'];
     }
     if (process.env.npm_config_platforms) {
       options.platforms = options.platforms.concat(
