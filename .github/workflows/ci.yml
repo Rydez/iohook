@@ -22,10 +22,10 @@ jobs:
     name: ${{ matrix.platform.os }} (${{matrix.platform.arch}})
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         # with:
         #   # Set registry to NPM instead of github packages for publication
         #   registry-url: 'https://registry.npmjs.org'
