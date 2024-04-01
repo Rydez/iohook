@@ -27,7 +27,7 @@ jobs:
         with:
           # Set registry to NPM instead of github packages for publication
           registry-url: 'https://registry.npmjs.org'
-          node-version: 18
+          node-version: 20
 
       - name: Setup Linux Dependencies
         if: startsWith(matrix.os, 'ubuntu')
