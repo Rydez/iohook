@@ -136,6 +136,7 @@ function build(runtime, version, abi) {
     let args = [
       'configure',
       'rebuild',
+      '--verbose',
       '--target=' + version,
       '--arch=' + arch,
       '--openssl_fips=X'
