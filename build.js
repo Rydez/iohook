@@ -186,7 +186,7 @@ function build(runtime, version, abi) {
 
 function tarGz(runtime, abi) {
   const FILES_TO_ARCHIVE = {
-    win32: ['build\\Release\\iohook.node', 'build\\Release\\uiohook.dll'],
+    win32: ['build/Release/iohook.node', 'build/Release/uiohook.dll'],
     linux: ['build/Release/iohook.node', 'build/Release/uiohook.so'],
     darwin: ['build/Release/iohook.node', 'build/Release/uiohook.dylib'],
   };
