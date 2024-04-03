@@ -13,7 +13,7 @@ jobs:
       matrix:
         platform: [
             { os: ubuntu-latest, arch: x86_64 },
-            { os: windows-2019, arch: x86_64 },
+            { os: windows-latest, arch: x86_64 },
             { os: macos-latest, arch: x86_64 },
             # Not supported by github actions.
             # {os: macos-latest, arch: arm64},
@@ -26,6 +26,10 @@ jobs:
 
       - name: Setup Node
         uses: actions/setup-node@v4
+        with:
+          # Set registry to NPM instead of github packages for publication
+          registry-url: 'https://registry.npmjs.org'
+          node-version: 18
 
       - name: Setup Linux Dependencies
         if: startsWith(matrix.platform.os, 'ubuntu')
