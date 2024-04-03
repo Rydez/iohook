@@ -209,6 +209,11 @@ function tarGz(runtime, abi) {
     fs.mkdirSync(path.dirname(tarPath));
   }
 
+  console.log('!!!!!!!!!!!!')
+  fs.readdirSync('build/Release/').forEach(file => {
+    console.log(file);
+  });
+
   tar.c(
     {
       gzip: true,
