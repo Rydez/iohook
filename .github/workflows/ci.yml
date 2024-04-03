@@ -32,6 +32,11 @@ jobs:
         run: |
           sudo apt-get install -y software-properties-common libx11-dev libxtst-dev libxt-dev libx11-xcb-dev libxkbcommon-dev libxkbcommon-x11-dev xorg-dev libxcb-xkb-dev libxkbfile-dev libxinerama-dev
 
+      - name: Setup Windows Dependencies
+        if: startsWith(matrix.platform.os, 'windows')
+        run: |
+          pacman -S pkg-config libtool gcc clang glib
+
       - name: Install Packages
         run: npm i --ignore-scripts
 
