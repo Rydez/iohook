@@ -34,6 +34,8 @@ jobs:
 
       - name: Setup Windows Dependencies
         if: startsWith(matrix.platform.os, 'windows')
+        uses: msys2/setup-msys2@v2
+        shell: msys2 {0}
         run: |
           pacman -S pkg-config libtool gcc clang glib
 
