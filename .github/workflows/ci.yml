@@ -12,9 +12,9 @@ jobs:
     strategy:
       matrix:
         platform: [
-            { os: ubuntu-latest, arch: x86_64 },
+            # { os: ubuntu-latest, arch: x86_64 },
             { os: windows-2019, arch: x86_64 },
-            { os: macos-latest, arch: x86_64 },
+            # { os: macos-latest, arch: x86_64 },
             # Not supported by github actions.
             # {os: macos-latest, arch: arm64},
           ]
