@@ -154,14 +154,14 @@ function build(runtime, version, abi) {
 
     console.log('Building iohook for ' + runtime + ' v' + version + '>>>>');
     if (process.platform === 'win32') {
-      if (version.split('.')[0] >= 4) {
-        process.env.msvs_toolset = 15;
-        process.env.msvs_version = argv.msvs_version || 2017;
-      } else {
-        process.env.msvs_toolset = 12;
-        process.env.msvs_version = 2013;
-      }
-      args.push('--msvs_version=' + process.env.msvs_version);
+      // if (version.split('.')[0] >= 4) {
+      //   process.env.msvs_toolset = 15;
+      //   process.env.msvs_version = argv.msvs_version || 2017;
+      // } else {
+      //   process.env.msvs_toolset = 12;
+      //   process.env.msvs_version = 2013;
+      // }
+      // args.push('--msvs_version=' + process.env.msvs_version);
     } else {
       process.env.gyp_iohook_runtime = runtime;
       process.env.gyp_iohook_abi = abi;
