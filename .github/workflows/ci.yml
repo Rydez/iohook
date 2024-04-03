@@ -13,7 +13,7 @@ jobs:
       matrix:
         platform: [
             { os: ubuntu-latest, arch: x86_64 },
-            { os: windows-latest, arch: x86_64 },
+            { os: windows-2019, arch: x86_64 },
             { os: macos-latest, arch: x86_64 },
             # Not supported by github actions.
             # {os: macos-latest, arch: arm64},
@@ -32,15 +32,15 @@ jobs:
         run: |
           sudo apt-get install -y software-properties-common libx11-dev libxtst-dev libxt-dev libx11-xcb-dev libxkbcommon-dev libxkbcommon-x11-dev xorg-dev libxcb-xkb-dev libxkbfile-dev libxinerama-dev
 
-      - name: Setup Windows MSYS2
-        if: startsWith(matrix.platform.os, 'windows')
-        uses: msys2/setup-msys2@v2
+      # - name: Setup Windows MSYS2
+      #   if: startsWith(matrix.platform.os, 'windows')
+      #   uses: msys2/setup-msys2@v2
 
-      - name: Setup Windows Dependencies
-        if: startsWith(matrix.platform.os, 'windows')
-        shell: msys2 {0}
-        run: |
-          pacman --noconfirm -S pkg-config libtool gcc clang glib2
+      # - name: Setup Windows Dependencies
+      #   if: startsWith(matrix.platform.os, 'windows')
+      #   shell: msys2 {0}
+      #   run: |
+      #     pacman --noconfirm -S pkg-config libtool gcc clang glib2
 
       - name: Install Packages
         run: npm i --ignore-scripts
