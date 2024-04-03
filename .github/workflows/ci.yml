@@ -40,7 +40,7 @@ jobs:
         if: startsWith(matrix.platform.os, 'windows')
         shell: msys2 {0}
         run: |
-          pacman --noconfirm -U -S pkg-config libtool gcc clang glib2
+          pacman --noconfirm -S pkg-config libtool gcc clang glib2
 
       - name: Install Packages
         run: npm i --ignore-scripts
