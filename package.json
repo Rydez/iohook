@@ -92,9 +92,9 @@
   },
   "supportedTargets": [
     [
-      "node",
-      "18.0.0",
-      "108"
+      "electron",
+      "29.1.6",
+      "121"
     ]
   ]
 }
