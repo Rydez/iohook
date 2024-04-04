@@ -107,61 +107,34 @@ function install(runtime, abi, platform, arch, cb) {
   });
 }
 
-// const options = optionsFromPackage();
+const options = optionsFromPackage();
 
-// if (process.env.npm_config_targets) {
-//   options.targets = options.targets.concat(
-//     process.env.npm_config_targets.split(',')
-//   );
-// }
-// if (process.env.npm_config_targets === 'all') {
-//   options.targets = supportedTargets.map((arr) => [arr[0], arr[2]]);
-//   options.platforms = ['win32', 'darwin', 'linux'];
-//   options.arches = ['x64', 'ia32', 'arm64'];
-// }
-// if (process.env.npm_config_platforms) {
-//   options.platforms = options.platforms.concat(
-//     process.env.npm_config_platforms.split(',')
-//   );
-// }
-// if (process.env.npm_config_arches) {
-//   options.arches = options.arches.concat(
-//     process.env.npm_config_arches.split(',')
-//   );
-// }
-
-const targets = [
-  {
-    target: "electron",
-    abi: "121",
-    platform: "darwin",
-    arch: "x64"
-  },
-  {
-    target: "electron",
-    abi: "121",
-    platform: "darwin",
-    arch: "arm64"
-  },
-  {
-    target: "electron",
-    abi: "121",
-    platform: "linux",
-    arch: "x64"
-  },
-  {
-    target: "electron",
-    abi: "121",
-    platform: "win32",
-    arch: "x64"
-  }
-];
+if (process.env.npm_config_targets) {
+  options.targets = options.targets.concat(
+    process.env.npm_config_targets.split(',')
+  );
+}
+if (process.env.npm_config_targets === 'all') {
+  options.targets = supportedTargets.map((arr) => [arr[0], arr[2]]);
+  options.platforms = ['win32', 'darwin', 'linux'];
+  options.arches = ['x64', 'ia32', 'arm64'];
+}
+if (process.env.npm_config_platforms) {
+  options.platforms = options.platforms.concat(
+    process.env.npm_config_platforms.split(',')
+  );
+}
+if (process.env.npm_config_arches) {
+  options.arches = options.arches.concat(
+    process.env.npm_config_arches.split(',')
+  );
+}
 
 // Choice prebuilds for install
-// if (options.targets.length > 0) {
+if (options.targets.length > 0) {
   let chain = Promise.resolve();
-  targets.forEach(function (target) {
-    // if (typeof target === 'object') {
+  options.targets.forEach(function (target) {
+    if (typeof target === 'object') {
       chain = chain.then(function () {
         return new Promise(function (resolve) {
           console.log(target.runtime, target.abi, target.platform, target.arch);
@@ -174,32 +147,32 @@ const targets = [
           );
         });
       });
-      // return;
-    // }
-    // let parts = target.split('-');
-    // let runtime = parts[0];
-    // let abi = parts[1];
-    // options.platforms.forEach(function (platform) {
-    //   options.arches.forEach(function (arch) {
-    //     if (platform === 'darwin' && arch === 'ia32') {
-    //       return;
-    //     }
-    //     if (platform !== 'darwin' && arch === 'arm64') {
-    //       return;
-    //     }
-    //     chain = chain.then(function () {
-    //       return new Promise(function (resolve) {
-    //         console.log(runtime, abi, platform, arch);
-    //         install(runtime, abi, platform, arch, resolve);
-    //       });
-    //     });
-    //   });
-    // });
+      return;
+    }
+    let parts = target.split('-');
+    let runtime = parts[0];
+    let abi = parts[1];
+    options.platforms.forEach(function (platform) {
+      options.arches.forEach(function (arch) {
+        if (platform === 'darwin' && arch === 'ia32') {
+          return;
+        }
+        if (platform !== 'darwin' && arch === 'arm64') {
+          return;
+        }
+        chain = chain.then(function () {
+          return new Promise(function (resolve) {
+            console.log(runtime, abi, platform, arch);
+            install(runtime, abi, platform, arch, resolve);
+          });
+        });
+      });
+    });
   });
-// } else {
-//   const runtime = process.versions['electron'] ? 'electron' : 'node';
-//   const abi = process.versions.modules;
-//   const platform = process.platform;
-//   const arch = process.arch;
-//   install(runtime, abi, platform, arch, function () {});
-// }
+} else {
+  const runtime = process.versions['electron'] ? 'electron' : 'node';
+  const abi = process.versions.modules;
+  const platform = process.platform;
+  const arch = process.arch;
+  install(runtime, abi, platform, arch, function () {});
+}
