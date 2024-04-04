@@ -96,5 +96,31 @@
       "29.1.6",
       "121"
     ]
+  ],
+  "targets": [
+    {
+      "target": "electron",
+      "abi": "121",
+      "platform": "darwin",
+      "arch": "x64"
+    },
+    {
+      "target": "electron",
+      "abi": "121",
+      "platform": "darwin",
+      "arch": "arm64"
+    },
+    {
+      "target": "electron",
+      "abi": "121",
+      "platform": "linux",
+      "arch": "x64"
+    },
+    {
+      "target": "electron",
+      "abi": "121",
+      "platform": "win32",
+      "arch": "x64"
+    }
   ]
 }
