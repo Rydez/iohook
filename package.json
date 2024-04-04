@@ -83,7 +83,6 @@
     "node-gyp": "^9.0.0",
     "prebuild": "^13.0.0",
     "prettier": "^3.2.5",
-    "robotjs": "^0.6.0",
     "tar": "^6.2.1",
     "vuepress": "^1.9.10"
   },
