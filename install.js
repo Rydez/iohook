@@ -132,25 +132,25 @@ function install(runtime, abi, platform, arch, cb) {
 
 const targets = [
   {
-    target: "electron",
+    runtime: "electron",
     abi: "121",
     platform: "darwin",
     arch: "x64"
   },
   {
-    target: "electron",
+    runtime: "electron",
     abi: "121",
     platform: "darwin",
     arch: "arm64"
   },
   {
-    target: "electron",
+    runtime: "electron",
     abi: "121",
     platform: "linux",
     arch: "x64"
   },
   {
-    target: "electron",
+    runtime: "electron",
     abi: "121",
     platform: "win32",
     arch: "x64"
