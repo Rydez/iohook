@@ -1,3 +1,15 @@
+# WARNING
+
+This repo has been rode hard and put away wet. 
+
+Most recent changes have been made to build for Windows x64, but this has likely broken builds for Mac and Linux. This is because I had to change the setup-node version to v18, and node-gyp to v9. This required downgrading python which was done by switching runs-on to windows-2019.
+
+Also note that there's likely a way to get Mac-arm64 but it would require using a larger macos for runs-on.
+
+So! To fix this, make the matrix in ci.yml have macos-xlarge, macos-latest, windows-2019, ubuntu-latest. 
+
+Another option is to downgrade python manually and build using node 18 and node-gyp 9.
+
 # iohook
 
 [![NPM version](https://img.shields.io/npm/v/iohook?color=%230088FF)](https://www.npmjs.com/package/iohook)
