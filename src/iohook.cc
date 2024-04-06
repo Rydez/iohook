@@ -564,4 +564,4 @@ NAN_MODULE_INIT(Init) {
   Nan::GetFunction(Nan::New<FunctionTemplate>(GrabMouseClick)).ToLocalChecked());
 }
 
-NODE_MODULE(nodeHook, Init)
+NAN_MODULE_WORKER_ENABLED(nodeHook, Init)
